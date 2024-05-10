@@ -1,0 +1,4 @@
+<config>
+	<interface hosts="BaseStation" names="wlan0" address="10.0.0.1"/>
+	<interface hosts="**" name="wlan0" address="10.x.x.x" netmask="255.x.x.x"/>
+</config>

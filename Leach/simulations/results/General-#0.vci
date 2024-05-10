@@ -1,0 +1,724 @@
+file 2984871 1715351454                                         
+version 3
+run General-0-20240510-21:30:38-2544
+attr configname General
+attr datetime 20240510-21:30:38
+attr datetimef 20240510-213038
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network test
+attr processid 2544
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../inet4.5/images
+config network test
+config **.arp.typename GlobalArp
+config *.radioMedium.backgroundNoise.power -90dBm
+config *.configurator.config "xmldoc(\"config.xml\")"
+config **.numNodes 5
+config *.leachNode[*].hasStatus true
+config **.constraintAreaMinX 0m
+config **.constraintAreaMaxX 400m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMaxY 400m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxZ 0m
+config **.wlan[*].radio.typename ApskScalarRadio
+config **.wlan[*].**.bitrate 2Mbps
+config *.BaseStation.routing.typename LeachBS
+config *.leachNode[*].routing.typename Leach
+config *.leachNode[*].routing.clusterHeadPercentage 0.1
+config *.leachNode[*].routing.roundDuration 30s
+config *.leachNode[*].wlan[*].radio.displayCommunicationRange true
+config *.leachNode[*].wlan[*].radio.displayInterferenceRange true
+config **.radio.centerFrequency 2GHz
+config **.radio.bandwidth 2MHz
+config **.radio.transmitter.power 1000.0W
+config **.radio.transmitter.preambleDuration 10us
+config **.radio.transmitter.headerLength 8B
+config **.radio.receiver.sensitivity -85dBm
+config **.radio.receiver.energyDetection -85dBm
+config **.radio.receiver.snirThreshold 4dB
+config *.radioMedium.pathLoss.typename FreeSpacePathLoss
+
+vector 0 test.leachNode[0].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 1 test.leachNode[0].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 2 test.leachNode[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 3 test.leachNode[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 4 test.leachNode[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 5 test.leachNode[1].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 6 test.leachNode[1].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 7 test.leachNode[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 8 test.leachNode[1].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 9 test.leachNode[1].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 10 test.leachNode[2].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 11 test.leachNode[2].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 12 test.leachNode[2].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 13 test.leachNode[2].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 14 test.leachNode[2].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 15 test.leachNode[3].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 16 test.leachNode[3].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 17 test.leachNode[3].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 18 test.leachNode[3].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 19 test.leachNode[3].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 20 test.leachNode[4].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 21 test.leachNode[4].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 22 test.leachNode[4].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 23 test.leachNode[4].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 24 test.leachNode[4].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 25 test.BaseStation.wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 26 test.BaseStation.wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 27 test.BaseStation.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 28 test.BaseStation.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 29 test.BaseStation.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 30 test.leachNode[0].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 31 test.leachNode[1].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 32 test.leachNode[2].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 33 test.leachNode[3].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 34 test.leachNode[4].energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 35 test.BaseStation.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 36 test.leachNode[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 37 test.leachNode[0].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 38 test.leachNode[1].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 39 test.leachNode[1].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 40 test.leachNode[2].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 41 test.leachNode[2].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 42 test.leachNode[3].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 43 test.leachNode[3].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 44 test.leachNode[4].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 45 test.leachNode[4].wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 46 test.BaseStation.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 47 test.BaseStation.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+attr unit W
+vector 48 test.leachNode[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 49 test.leachNode[1].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 50 test.leachNode[2].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 51 test.leachNode[3].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 52 test.leachNode[4].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 53 test.BaseStation.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 54 test.leachNode[4].wlan[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 55 test.leachNode[4].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 56 test.leachNode[4].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
+vector 57 test.leachNode[4].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 58 test.leachNode[4].wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 59 test.leachNode[4].wlan[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 60 test.leachNode[4].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 61 test.leachNode[0].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
+vector 62 test.BaseStation.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
+vector 63 test.leachNode[2].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
+vector 64 test.leachNode[1].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
+vector 65 test.leachNode[3].energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
+vector 66 test.leachNode[2].wlan[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 67 test.leachNode[2].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 68 test.leachNode[2].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 69 test.leachNode[2].wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 70 test.leachNode[2].wlan[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 71 test.leachNode[2].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 72 test.leachNode[1].wlan[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 73 test.leachNode[1].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 74 test.leachNode[1].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 75 test.leachNode[1].wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 76 test.leachNode[1].wlan[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 77 test.leachNode[1].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 78 test.BaseStation.wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 79 test.leachNode[0].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 80 test.leachNode[3].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 81 test.leachNode[4].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 82 test.leachNode[3].wlan[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 83 test.leachNode[3].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 84 test.leachNode[3].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 85 test.leachNode[3].wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 86 test.leachNode[3].wlan[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 87 test.leachNode[3].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 88 test.leachNode[1].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 89 test.leachNode[0].wlan[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 90 test.leachNode[0].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 91 test.leachNode[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 92 test.leachNode[0].wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 93 test.leachNode[0].wlan[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 94 test.leachNode[0].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 95 test.BaseStation.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 96 test.leachNode[2].wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+0	25163 2980 0 10138 0 873.099752089551 115 0 2 95 135
+1	28143 3150 0 10138 0 873.099752089551 115 0 1344 58080 58055680
+2	31293 9 0 0 0 0 1 0 0 0 0
+3	31302 9 0 0 0 0 1 0 0 0 0
+4	31311 9 0 0 0 0 1 0 0 0 0
+5	31320 2243 0 10302 0 875.176085811112 87 0 2 69 97
+6	33563 2367 0 10302 0 875.176085811112 87 0 1344 41248 40756224
+7	35930 9 0 0 0 0 1 0 0 0 0
+8	35939 9 0 0 0 0 1 0 0 0 0
+9	35948 9 0 0 0 0 1 0 0 0 0
+10	35957 2865 0 10094 0 872.662102215299 107 0 2 87 123
+11	38822 3021 0 10094 0 872.662102215299 107 0 1344 52704 52374528
+12	41843 10 0 0 0 0 1 0 0 0 0
+13	41853 10 0 0 0 0 1 0 0 0 0
+14	41863 10 0 0 0 0 1 0 0 0 0
+15	41873 3225 0 10286 0 875.175607199378 119 0 2 99 141
+16	45098 3402 0 10286 0 875.175607199378 119 0 1344 60768 60896256
+17	48500 10 0 0 0 0 1 0 0 0 0
+18	48510 10 0 0 0 0 1 0 0 0 0
+19	48520 10 0 0 0 0 1 0 0 0 0
+20	48530 2281 0 10215 0 875.10253454569 85 0 2 66 92
+21	50811 2400 0 10215 0 875.10253454569 85 0 1344 38976 38088704
+22	53211 10 0 0 0 0 1 0 0 0 0
+23	53221 10 0 0 0 0 1 0 0 0 0
+24	53231 10 0 0 0 0 1 0 0 0 0
+25	53241 50 0 0 0 0 5 0 0 0 0
+26	53291 50 0 0 0 0 5 0 0 0 0
+27	53341 10 0 0 0 0 1 0 0 0 0
+28	53351 10 0 0 0 0 1 0 0 0 0
+29	53361 10 0 0 0 0 1 0 0 0 0
+30	53371 54916 0 10321 0 875.176340387213 1802 0 0.075 26.468205 1.435825016025
+31	108287 45194 0 10316 0 875.176339811112 1471 0 0.075 25.117855 1.324075014275
+32	153481 51898 0 10317 0 875.176340184042 1706 0 0.075 26.078105 1.403875015525
+33	205379 55726 0 10323 0 875.176340422846 1822 0 0.075 26.548225 1.442225016125
+34	261105 44303 0 10325 0 875.176340791504 1440 0 0.075 24.992825 1.314450014125
+35	305408 53722 0 10319 0 875.176340229406 1762 0 0.075 26.263135 1.413800015675
+36	359130 5070 0 10145 0 873.100166089551 185 0 3 457 1187
+37	364200 54906 0 10321 0 875.176340387213 1801 0 0.075 26.468205 1.435825016025
+38	419106 3155 0 10316 0 875.176339811112 115 0 3 282 732
+39	422261 45184 0 10316 0 875.176339811112 1470 0 0.075 25.117855 1.324075014275
+40	467445 4484 0 10101 0 872.662516215299 165 0 3 407 1057
+41	471929 51888 0 10317 0 875.176340184042 1705 0 0.075 26.078105 1.403875015525
+42	523817 5224 0 10293 0 875.176085199378 189 0 3 467 1213
+43	529041 55716 0 10323 0 875.176340422846 1821 0 0.075 26.548225 1.442225016125
+44	584757 2988 0 10222 0 875.10294854569 109 0 3 267 693
+45	587745 44293 0 10325 0 875.176340791504 1439 0 0.075 24.992825 1.314450014125
+46	632038 4688 0 9942 0 819.020320626046 171 0 3 422 1096
+47	636726 53712 0 10319 0 875.176340229406 1761 0 0.075 26.263135 1.413800015675
+48	690438 25423 0 10321 0 875.176340387213 917 0 3 1560 3762
+49	715861 25446 0 10316 0 875.176339811112 917 0 3 1665 4077
+50	741307 25417 0 10317 0 875.176340184042 917 0 3 1590 3852
+51	766724 25430 0 10323 0 875.176340422846 917 0 3 1554 3744
+52	792154 25476 0 10325 0 875.176340791504 917 0 3 1674 4104
+53	817630 25399 0 10319 0 875.176340229406 917 0 3 1581 3825
+54	843029 1196 23 10213 60.140350777423 875.10016654569 40 288 928 21504 14606336
+55	844225 143929 23 10213 0.1 875.1 8751 0 13440 212160 2456064000
+56	988154 43726 25 10325 60.142718777423 875.176340791504 956 -0.0097889612439575 -0.00030071359388712 -4.7639581727794 0.031381453108658
+57	1031880 5916 25 10222 60.142718777423 875.10294854569 212 0 2 212 318
+58	1037796 1473 25 10215 60.142718777423 875.10253454569 40 0.000448 0.005726523136 0.091759855358 0.00028180357832645
+59	1039269 1195 25 10215 60.142718777423 875.10253454569 40 288 928 21504 14606336
+60	1040464 143929 25 10215 0.1 875.1 8751 0 13440 212160 2456064000
+61	1184393 44385 27 10321 60.142911233562 875.176340387213 971 -0.010011504761936 -0.00030071455616781 -4.9572746393949 0.033403500387067
+62	1228778 41817 28 10319 60.1429113627 875.176340229406 916 -0.0095819414811471 -0.0003007145568135 -4.4739058913116 0.028853364863159
+63	1270595 44214 29 10317 60.142911503952 875.176340184042 967 -0.0099512143609202 -0.00030071455751976 -4.905639322719 0.032842955273024
+64	1314809 43730 30 10316 60.142911757815 875.176339811112 956 -0.0097964883590556 -0.00030071455878908 -4.7724043815102 0.031466433105188
+65	1358539 44445 31 10323 60.142912038991 875.176340422846 973 -0.010034122842114 -0.00030071456019496 -4.9671430917091 0.033490274409711
+66	1402984 1509 59 10092 60.957155154319 872.660374215299 51 288 928 28512 19860480
+67	1404493 144041 59 10092 0.1 872.6 8726 0 13440 282240 3367526400
+68	1548534 8908 61 10101 60.958563154319 872.662516215299 324 0 2 324 486
+69	1557442 1862 61 10094 60.958563154319 872.662102215299 51 0.000128 0.004764542194 0.096026566546 0.00025668254555445
+70	1559304 1510 61 10094 60.958563154319 872.662102215299 51 288 928 28512 19860480
+71	1560814 144041 61 10094 0.1 872.6 8726 0 13440 282240 3367526400
+72	1704855 1253 92 10302 62.286487043316 875.176085811112 42 288 928 22848 15640576
+73	1706108 144432 92 10301 0.1 875.1 8751 0 13440 215040 2464358400
+74	1850540 6250 94 10316 62.288855043316 875.176339811112 224 0 2 224 336
+75	1856790 1467 94 10182 62.288855043316 874.170107364176 40 0.000128 0.005085960784 0.071913925866 0.00019296522532516
+76	1858257 1191 94 10182 62.288855043316 874.170107364176 40 288 928 21504 14606336
+77	1859448 144251 94 10182 0.1 874.1 8741 0 13440 212160 2456064000
+78	2003699 7443 107 10320 62.28926946161 875.176340229406 262 5 125 10678 926278
+79	2011142 7406 109 10322 62.289269619417 875.176340387213 260 5 125 11588 1077188
+80	2018548 7262 111 10175 62.28926965505 873.100421807258 256 5 125 11392 1057792
+81	2025810 9507 113 10326 62.289270023708 875.176340791504 334 5 125 14878 1382478
+82	2035317 1700 136 10246 62.680507267222 875.17052197591 57 288 928 32544 22963200
+83	2037017 145080 136 10245 0.1 875.1 8751 0 13440 312000 3737088000
+84	2182097 10388 138 10293 62.681595267222 875.176085199378 372 0 2 372 558
+85	2192485 2114 138 10286 62.681595267222 875.175607199378 57 0.000128 0.005085223468 0.11813864373 0.00035147833851376
+86	2194599 1703 138 10286 62.681595267222 875.175607199378 57 288 928 32544 22963200
+87	2196302 145082 138 10248 0.1 875.1 8751 0 13440 312000 3659878400
+88	2341384 9328 151 10173 62.682009878956 873.100421526082 328 5 125 14632 1361032
+89	2350712 1633 181 10136 62.783054250553 873.099624089551 55 288 928 31200 21928960
+90	2352345 144725 181 10136 0.1 873 8730 0 13440 309120 3728793600
+91	2497070 10080 183 10145 62.785102250553 873.100166089551 364 0 2 364 546
+92	2507150 2027 183 10138 62.785102250553 873.099752089551 55 0.000128 0.005658316696 0.12026836249 0.0003846554815978
+93	2509177 1632 183 10138 62.785102250553 873.099752089551 55 288 928 31200 21928960
+94	2510809 144725 183 10138 0.1 873 8730 0 13440 309120 3728793600
+95	2655534 9316 349 9942 65.297771077396 819.020320626046 336 0 2 336 504
+96	2664850 8005 835 10318 152.540556494079 875.176340184042 280 5 125 12472 1158872
+vector 97 test.BaseStation.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 98 test.BaseStation.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+55	2673286 41 10327 10327 875.177299811112 875.177299811112 1 3725.75295925 3725.75295925 3725.75295925 13881235.11336
+60	2673327 41 10327 10327 875.177299811112 875.177299811112 1 3725.75295925 3725.75295925 3725.75295925 13881235.11336
+67	2673368 476 10327 10327 872.7 875.177299811112 26 0 2880 2880 8294400
+71	2673844 476 10327 10327 872.7 875.177299811112 26 0 2880 2880 8294400
+73	2674320 43 10327 10327 875.177299811112 875.177299811112 1 17386.847143167 17386.847143167 17386.847143167 302302453.57984
+77	2674363 210 10327 10327 874.2 875.177299811112 11 0 2880 2880 8294400
+83	2674573 43 10327 10327 875.177299811112 875.177299811112 1 17386.847143167 17386.847143167 17386.847143167 302302453.57984
+87	2674616 43 10327 10327 875.177299811112 875.177299811112 1 17386.847143167 17386.847143167 17386.847143167 302302453.57984
+90	2674659 406 10327 10327 873.1 875.177299811112 22 0 2880 2880 8294400
+94	2675065 406 10327 10327 873.1 875.177299811112 22 0 2880 2880 8294400
+97	2675471 154699 10327 10327 0.1 875.177299811112 8752 0 0 0 0
+98	2830170 154699 10327 10327 0.1 875.177299811112 8752 0 0 0 0
+
